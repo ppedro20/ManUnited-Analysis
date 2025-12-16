@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="11.0.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="11.0.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="false" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Player_Daily_Status" width="90" x="45" y="34">
+        <parameter key="connection_source" value="repository"/>
+        <parameter key="connection_entry" value="/Connections/MongoDB"/>
+        <parameter key="collection" value="player_daily_status"/>
+        <parameter key="sort_documents" value="false"/>
+        <parameter key="limit_results" value="false"/>
+        <parameter key="skip" value="0"/>
+      </operator>
+      <operator activated="false" class="text:json_to_data" compatibility="11.0.001" expanded="true" height="82" name="pds_data" width="90" x="179" y="34">
+        <parameter key="ignore_arrays" value="false"/>
+        <parameter key="limit_attributes" value="false"/>
+        <parameter key="skip_invalid_documents" value="false"/>
+        <parameter key="guess_data_types" value="true"/>
+        <parameter key="keep_missing_attributes" value="false"/>
+        <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
+        <parameter key="preserve_attribute_order" value="false"/>
+      </operator>
+      <operator activated="false" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store" width="90" x="313" y="34">
+        <parameter key="repository_entry" value="../data/departamento_medico/player_daily_status"/>
+      </operator>
+      <operator activated="false" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Acute_Chronic_Load" width="90" x="45" y="340">
+        <parameter key="connection_source" value="repository"/>
+        <parameter key="connection_entry" value="/Connections/MongoDB"/>
+        <parameter key="collection" value="acute_chronic_load"/>
+        <parameter key="sort_documents" value="false"/>
+        <parameter key="limit_results" value="false"/>
+        <parameter key="skip" value="0"/>
+      </operator>
+      <operator activated="false" class="text:json_to_data" compatibility="11.0.001" expanded="true" height="82" name="acl_data" width="90" x="179" y="340">
+        <parameter key="ignore_arrays" value="false"/>
+        <parameter key="limit_attributes" value="false"/>
+        <parameter key="skip_invalid_documents" value="false"/>
+        <parameter key="guess_data_types" value="true"/>
+        <parameter key="keep_missing_attributes" value="false"/>
+        <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
+        <parameter key="preserve_attribute_order" value="false"/>
+      </operator>
+      <operator activated="false" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (3)" width="90" x="313" y="340">
+        <parameter key="repository_entry" value="../data/departamento_medico/acute_chronic_load"/>
+      </operator>
+      <operator activated="false" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Training_Sessions" width="90" x="45" y="187">
+        <parameter key="connection_source" value="repository"/>
+        <parameter key="connection_entry" value="/Connections/MongoDB"/>
+        <parameter key="collection" value="training_sessions"/>
+        <parameter key="sort_documents" value="false"/>
+        <parameter key="limit_results" value="false"/>
+        <parameter key="skip" value="0"/>
+      </operator>
+      <operator activated="false" class="text:json_to_data" compatibility="11.0.001" expanded="true" height="82" name="ts_data" width="90" x="179" y="187">
+        <parameter key="ignore_arrays" value="false"/>
+        <parameter key="limit_attributes" value="false"/>
+        <parameter key="skip_invalid_documents" value="false"/>
+        <parameter key="guess_data_types" value="true"/>
+        <parameter key="keep_missing_attributes" value="false"/>
+        <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
+        <parameter key="preserve_attribute_order" value="false"/>
+      </operator>
+      <operator activated="false" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (2)" width="90" x="313" y="187">
+        <parameter key="repository_entry" value="../data/departamento_medico/training_sessions"/>
+      </operator>
+      <operator activated="false" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="GPS_Match_Load" width="90" x="45" y="493">
+        <parameter key="connection_source" value="repository"/>
+        <parameter key="connection_entry" value="/Connections/MongoDB"/>
+        <parameter key="collection" value="gps_match_load"/>
+        <parameter key="sort_documents" value="false"/>
+        <parameter key="limit_results" value="false"/>
+        <parameter key="skip" value="0"/>
+      </operator>
+      <operator activated="false" class="text:json_to_data" compatibility="11.0.001" expanded="true" height="82" name="GPS_data" width="90" x="179" y="493">
+        <parameter key="ignore_arrays" value="false"/>
+        <parameter key="limit_attributes" value="false"/>
+        <parameter key="skip_invalid_documents" value="false"/>
+        <parameter key="guess_data_types" value="true"/>
+        <parameter key="keep_missing_attributes" value="false"/>
+        <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
+        <parameter key="preserve_attribute_order" value="false"/>
+      </operator>
+      <operator activated="false" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (4)" width="90" x="313" y="493">
+        <parameter key="repository_entry" value="../data/departamento_medico/gps_match_load"/>
+      </operator>
+      <connect from_op="Player_Daily_Status" from_port="collection" to_op="pds_data" to_port="documents 1"/>
+      <connect from_op="pds_data" from_port="example set" to_op="Store" to_port="input"/>
+      <connect from_op="Acute_Chronic_Load" from_port="collection" to_op="acl_data" to_port="documents 1"/>
+      <connect from_op="acl_data" from_port="example set" to_op="Store (3)" to_port="input"/>
+      <connect from_op="Training_Sessions" from_port="collection" to_op="ts_data" to_port="documents 1"/>
+      <connect from_op="ts_data" from_port="example set" to_op="Store (2)" to_port="input"/>
+      <connect from_op="GPS_Match_Load" from_port="collection" to_op="GPS_data" to_port="documents 1"/>
+      <connect from_op="GPS_data" from_port="example set" to_op="Store (4)" to_port="input"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+    </process>
+  </operator>
+</process>
