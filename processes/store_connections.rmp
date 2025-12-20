@@ -92,6 +92,24 @@
       <operator activated="false" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (4)" width="90" x="313" y="493">
         <parameter key="repository_entry" value="../data/departamento_medico/gps_match_load"/>
       </operator>
+      <operator activated="true" class="jdbc_connectors:read_database" compatibility="11.0.001" expanded="true" height="82" name="Player_info" width="90" x="45" y="646">
+        <parameter key="define_connection" value="repository"/>
+        <parameter key="connection_entry" value="/Connections/mysql"/>
+        <parameter key="database_system" value="MySQL"/>
+        <parameter key="define_query" value="table name"/>
+        <parameter key="use_default_schema" value="true"/>
+        <parameter key="table_name" value="player_info"/>
+        <parameter key="prepare_statement" value="false"/>
+        <enumeration key="parameters"/>
+        <parameter key="data_management" value="auto"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes" width="90" x="179" y="646">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="␞player_slug␞player_name␞position␞main_position␞height␞contract_expires␞date_of_birth␞foot"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
       <connect from_op="Player_Daily_Status" from_port="collection" to_op="pds_data" to_port="documents 1"/>
       <connect from_op="pds_data" from_port="example set" to_op="Store" to_port="input"/>
       <connect from_op="Acute_Chronic_Load" from_port="collection" to_op="acl_data" to_port="documents 1"/>
@@ -100,8 +118,11 @@
       <connect from_op="ts_data" from_port="example set" to_op="Store (2)" to_port="input"/>
       <connect from_op="GPS_Match_Load" from_port="collection" to_op="GPS_data" to_port="documents 1"/>
       <connect from_op="GPS_data" from_port="example set" to_op="Store (4)" to_port="input"/>
+      <connect from_op="Player_info" from_port="output" to_op="Select Attributes" to_port="example set input"/>
+      <connect from_op="Select Attributes" from_port="example set output" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
     </process>
   </operator>
 </process>
