@@ -116,7 +116,7 @@
         </list>
         <parameter key="read_not_matching_values_as_missings" value="false"/>
       </operator>
-      <operator activated="true" class="filter_examples" compatibility="11.0.001" expanded="true" height="103" name="Filter Examples" width="90" x="179" y="187">
+      <operator activated="true" class="filter_examples" compatibility="11.0.001" expanded="true" height="103" name="Filter Examples" width="90" x="246" y="187">
         <parameter key="parameter_expression" value=""/>
         <parameter key="condition_class" value="custom_filters"/>
         <parameter key="invert_filter" value="false"/>
@@ -126,7 +126,7 @@
         <parameter key="filters_logic_and" value="true"/>
         <parameter key="filters_check_metadata" value="true"/>
       </operator>
-      <operator activated="true" class="map" compatibility="11.0.001" expanded="true" height="82" name="Map" width="90" x="313" y="187">
+      <operator activated="true" class="map" compatibility="11.0.001" expanded="true" height="82" name="Map" width="90" x="447" y="187">
         <parameter key="attribute_filter_type" value="single"/>
         <parameter key="attribute" value="player_name"/>
         <parameter key="attributes" value=""/>
@@ -189,6 +189,7 @@
       <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (2)" width="90" x="849" y="34">
         <list key="function_descriptions">
           <parameter key="Nation" value="cut(Nation,3,length(Nation)-3)"/>
+          <parameter key="Season" value="date_get(date_unix,DATE_UNIT_YEAR)"/>
         </list>
         <parameter key="keep_all_columns" value="true"/>
         <parameter key="default_time_zone" value="Europe/Lisbon"/>
@@ -226,141 +227,25 @@
         </list>
         <parameter key="keep_both_join_attributes" value="false"/>
       </operator>
-      <operator activated="false" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Player_Stats_Possession" width="90" x="45" y="340">
-        <parameter key="connection_source" value="repository"/>
-        <parameter key="connection_entry" value="/Connections/MongoDB"/>
-        <parameter key="collection" value="player_stats_possession"/>
-        <parameter key="sort_documents" value="false"/>
-        <parameter key="limit_results" value="false"/>
-        <parameter key="skip" value="0"/>
+      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve" width="90" x="45" y="340">
+        <parameter key="repository_entry" value="../data/dfs/df_player_info"/>
       </operator>
-      <operator activated="false" class="text:json_to_data" compatibility="11.0.001" expanded="true" height="82" name="JSON To Data" width="90" x="179" y="340">
-        <parameter key="ignore_arrays" value="false"/>
-        <parameter key="limit_attributes" value="false"/>
-        <parameter key="skip_invalid_documents" value="false"/>
-        <parameter key="guess_data_types" value="true"/>
-        <parameter key="keep_missing_attributes" value="false"/>
-        <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
-        <parameter key="preserve_attribute_order" value="false"/>
-      </operator>
-      <operator activated="false" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Player_Stats_Misc" width="90" x="45" y="493">
-        <parameter key="connection_source" value="repository"/>
-        <parameter key="connection_entry" value="/Connections/MongoDB"/>
-        <parameter key="collection" value="player_stats_misc"/>
-        <parameter key="sort_documents" value="false"/>
-        <parameter key="limit_results" value="false"/>
-        <parameter key="skip" value="0"/>
-      </operator>
-      <operator activated="false" class="text:json_to_data" compatibility="11.0.001" expanded="true" height="82" name="JSON To Data (2)" width="90" x="179" y="493">
-        <parameter key="ignore_arrays" value="false"/>
-        <parameter key="limit_attributes" value="false"/>
-        <parameter key="skip_invalid_documents" value="false"/>
-        <parameter key="guess_data_types" value="true"/>
-        <parameter key="keep_missing_attributes" value="false"/>
-        <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
-        <parameter key="preserve_attribute_order" value="false"/>
-      </operator>
-      <operator activated="true" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Acute_Chronic_Load" width="90" x="45" y="1564">
-        <parameter key="connection_source" value="repository"/>
-        <parameter key="connection_entry" value="/Connections/MongoDB"/>
-        <parameter key="collection" value="acute_chronic_load"/>
-        <parameter key="sort_documents" value="false"/>
-        <parameter key="limit_results" value="false"/>
-        <parameter key="skip" value="0"/>
-      </operator>
-      <operator activated="true" class="text:json_to_data" compatibility="11.0.001" expanded="true" height="82" name="JSON To Data (3)" width="90" x="179" y="1564">
-        <parameter key="ignore_arrays" value="false"/>
-        <parameter key="limit_attributes" value="false"/>
-        <parameter key="skip_invalid_documents" value="false"/>
-        <parameter key="guess_data_types" value="true"/>
-        <parameter key="keep_missing_attributes" value="false"/>
-        <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
-        <parameter key="preserve_attribute_order" value="false"/>
-      </operator>
-      <operator activated="true" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Training_Sessions" width="90" x="45" y="1411">
-        <parameter key="connection_source" value="repository"/>
-        <parameter key="connection_entry" value="/Connections/MongoDB"/>
-        <parameter key="collection" value="training_sessions"/>
-        <parameter key="sort_documents" value="false"/>
-        <parameter key="limit_results" value="false"/>
-        <parameter key="skip" value="0"/>
-      </operator>
-      <operator activated="true" class="text:json_to_data" compatibility="11.0.001" expanded="true" height="82" name="JSON To Data (4)" width="90" x="179" y="1411">
-        <parameter key="ignore_arrays" value="false"/>
-        <parameter key="limit_attributes" value="false"/>
-        <parameter key="skip_invalid_documents" value="false"/>
-        <parameter key="guess_data_types" value="true"/>
-        <parameter key="keep_missing_attributes" value="false"/>
-        <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
-        <parameter key="preserve_attribute_order" value="false"/>
-      </operator>
-      <operator activated="true" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="GPS_Match_Load" width="90" x="45" y="1717">
-        <parameter key="connection_source" value="repository"/>
-        <parameter key="connection_entry" value="/Connections/MongoDB"/>
-        <parameter key="collection" value="gps_match_load"/>
-        <parameter key="sort_documents" value="false"/>
-        <parameter key="limit_results" value="false"/>
-        <parameter key="skip" value="0"/>
-      </operator>
-      <operator activated="true" class="text:json_to_data" compatibility="11.0.001" expanded="true" height="82" name="JSON To Data (5)" width="90" x="179" y="1717">
-        <parameter key="ignore_arrays" value="false"/>
-        <parameter key="limit_attributes" value="false"/>
-        <parameter key="skip_invalid_documents" value="false"/>
-        <parameter key="guess_data_types" value="true"/>
-        <parameter key="keep_missing_attributes" value="false"/>
-        <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
-        <parameter key="preserve_attribute_order" value="false"/>
-      </operator>
-      <operator activated="false" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Player_Stats_Pass_types" width="90" x="45" y="646">
-        <parameter key="connection_source" value="repository"/>
-        <parameter key="connection_entry" value="/Connections/MongoDB"/>
-        <parameter key="collection" value="player_stats_pass_types"/>
-        <parameter key="sort_documents" value="false"/>
-        <parameter key="limit_results" value="false"/>
-        <parameter key="skip" value="0"/>
-      </operator>
-      <operator activated="false" class="text:json_to_data" compatibility="11.0.001" expanded="true" height="82" name="JSON To Data (6)" width="90" x="179" y="646">
-        <parameter key="ignore_arrays" value="false"/>
-        <parameter key="limit_attributes" value="false"/>
-        <parameter key="skip_invalid_documents" value="false"/>
-        <parameter key="guess_data_types" value="true"/>
-        <parameter key="keep_missing_attributes" value="false"/>
-        <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
-        <parameter key="preserve_attribute_order" value="false"/>
-      </operator>
-      <operator activated="false" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Player_Stats_Playing_Time" width="90" x="45" y="799">
-        <parameter key="connection_source" value="repository"/>
-        <parameter key="connection_entry" value="/Connections/MongoDB"/>
-        <parameter key="collection" value="player_stats_playing_time"/>
-        <parameter key="sort_documents" value="false"/>
-        <parameter key="limit_results" value="false"/>
-        <parameter key="skip" value="0"/>
-      </operator>
-      <operator activated="false" class="text:json_to_data" compatibility="11.0.001" expanded="true" height="82" name="JSON To Data (7)" width="90" x="179" y="799">
-        <parameter key="ignore_arrays" value="false"/>
-        <parameter key="limit_attributes" value="false"/>
-        <parameter key="skip_invalid_documents" value="false"/>
-        <parameter key="guess_data_types" value="true"/>
-        <parameter key="keep_missing_attributes" value="false"/>
-        <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
-        <parameter key="preserve_attribute_order" value="false"/>
-      </operator>
-      <operator activated="false" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Player_Stats_Playing_Time (2)" width="90" x="45" y="952">
-        <parameter key="connection_source" value="repository"/>
-        <parameter key="connection_entry" value="/Connections/MongoDB"/>
-        <parameter key="collection" value="player_stats_playing_time"/>
-        <parameter key="sort_documents" value="false"/>
-        <parameter key="limit_results" value="false"/>
-        <parameter key="skip" value="0"/>
-      </operator>
-      <operator activated="false" class="text:json_to_data" compatibility="11.0.001" expanded="true" height="82" name="JSON To Data (8)" width="90" x="179" y="952">
-        <parameter key="ignore_arrays" value="false"/>
-        <parameter key="limit_attributes" value="false"/>
-        <parameter key="skip_invalid_documents" value="false"/>
-        <parameter key="guess_data_types" value="true"/>
-        <parameter key="keep_missing_attributes" value="false"/>
-        <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
-        <parameter key="preserve_attribute_order" value="false"/>
+      <operator activated="false" class="map" compatibility="11.0.001" expanded="true" height="82" name="Map - names" width="90" x="179" y="340">
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <list key="value_mappings"/>
+        <parameter key="consider_regular_expressions" value="false"/>
+        <parameter key="add_default_mapping" value="false"/>
       </operator>
       <connect from_op="Countries" from_port="output" to_op="Join (2)" to_port="right"/>
       <connect from_op="Player_Wages" from_port="output" to_op="Filter Examples (2)" to_port="example set input"/>
@@ -375,17 +260,15 @@
       <connect from_op="Generate Attributes (2)" from_port="table output" to_op="Map (3)" to_port="example set input"/>
       <connect from_op="Map (3)" from_port="example set output" to_op="Join (2)" to_port="left"/>
       <connect from_op="Join (2)" from_port="join" to_port="result 1"/>
-      <connect from_op="Player_Stats_Possession" from_port="collection" to_op="JSON To Data" to_port="documents 1"/>
-      <connect from_op="Player_Stats_Misc" from_port="collection" to_op="JSON To Data (2)" to_port="documents 1"/>
-      <connect from_op="Acute_Chronic_Load" from_port="collection" to_op="JSON To Data (3)" to_port="documents 1"/>
-      <connect from_op="Training_Sessions" from_port="collection" to_op="JSON To Data (4)" to_port="documents 1"/>
-      <connect from_op="GPS_Match_Load" from_port="collection" to_op="JSON To Data (5)" to_port="documents 1"/>
-      <connect from_op="Player_Stats_Pass_types" from_port="collection" to_op="JSON To Data (6)" to_port="documents 1"/>
-      <connect from_op="Player_Stats_Playing_Time" from_port="collection" to_op="JSON To Data (7)" to_port="documents 1"/>
-      <connect from_op="Player_Stats_Playing_Time (2)" from_port="collection" to_op="JSON To Data (8)" to_port="documents 1"/>
+      <connect from_op="Retrieve" from_port="output" to_port="result 2"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <description align="center" color="yellow" colored="false" height="104" resized="false" width="180" x="64" y="446">map nomes dos jogadores no player_info</description>
+      <description align="center" color="yellow" colored="false" height="104" resized="false" width="180" x="308" y="452">selecionar valoers dos jogadores do ano 2025</description>
+      <description align="center" color="yellow" colored="false" height="104" resized="false" width="180" x="564" y="458">merge nos 2 datasets pelo nome</description>
+      <description align="center" color="yellow" colored="false" height="104" resized="false" width="180" x="824" y="456">selecionar atributos relevantes</description>
     </process>
   </operator>
 </process>
