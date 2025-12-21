@@ -13,7 +13,7 @@
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
       <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_daily_status" width="90" x="45" y="238">
-        <parameter key="repository_entry" value="../data/departamento_medico/player_daily_status"/>
+        <parameter key="repository_entry" value="../data/raw/player_daily_status"/>
       </operator>
       <operator activated="true" class="generate_empty_attribute" compatibility="11.0.001" expanded="true" height="82" name="Generate Empty Attribute" width="90" x="179" y="238">
         <parameter key="name" value="fitness"/>
@@ -57,7 +57,7 @@
         <parameter key="to_attribute" value=""/>
       </operator>
       <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve gps_match_load" width="90" x="45" y="136">
-        <parameter key="repository_entry" value="../data/departamento_medico/gps_match_load"/>
+        <parameter key="repository_entry" value="../data/raw/gps_match_load"/>
       </operator>
       <operator activated="true" class="aggregate" compatibility="11.0.001" expanded="true" height="82" name="Aggregate - distance/sprints" width="90" x="179" y="136">
         <parameter key="use_default_aggregation" value="false"/>
@@ -96,10 +96,10 @@
         <parameter key="to_attribute" value=""/>
       </operator>
       <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve acute_chronic_load" width="90" x="45" y="34">
-        <parameter key="repository_entry" value="../data/departamento_medico/acute_chronic_load"/>
+        <parameter key="repository_entry" value="../data/raw/acute_chronic_load"/>
       </operator>
       <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve training_sessions" width="90" x="45" y="340">
-        <parameter key="repository_entry" value="../data/departamento_medico/training_sessions"/>
+        <parameter key="repository_entry" value="../data/raw/training_sessions"/>
       </operator>
       <operator activated="true" class="aggregate" compatibility="11.0.001" expanded="true" height="82" name="Aggregate_acl" width="90" x="179" y="34">
         <parameter key="use_default_aggregation" value="false"/>
@@ -208,9 +208,9 @@
         <parameter key="keep_both_join_attributes" value="false"/>
       </operator>
       <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store" width="90" x="849" y="34">
-        <parameter key="repository_entry" value="../data/viz_dfs/df_departamento_medico"/>
+        <parameter key="repository_entry" value="../data/processed/df_departamento_medico"/>
       </operator>
-      <operator activated="true" class="write_excel" compatibility="11.0.001" expanded="true" height="103" name="Write Excel" width="90" x="916" y="136">
+      <operator activated="true" class="write_excel" compatibility="11.0.001" expanded="true" height="103" name="Write Excel" width="90" x="983" y="34">
         <parameter key="excel_file" value="C:/Users/pedro/Desktop/ID-PROJ/data/final_data/viz_dfs/df_departamento_medico.xlsx"/>
         <parameter key="file_format" value="xlsx"/>
         <enumeration key="sheet_names"/>

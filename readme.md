@@ -17,10 +17,10 @@
 
 ## Data Sources
 ### Mongo DB
-- acute_chronic_load: 
-- gps_match_load:
-- training_sessions:
-- player_daily_status:
+- acute_chronic_load: ac_ratio, acute_load, chronic_load, player_id, player_name, week
+- gps_match_load: player_id, player_name, distance_km, hsr_m, match_date, sprints
+- training_sessions: player_id, player_name, session_date, session_type, duration_min, intensity
+- player_daily_status: player_id, player_name, date, status
 
 - player_stats_creation:
 - player_stats_defensive
