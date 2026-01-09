@@ -12,38 +12,6 @@
     <parameter key="process_duration_for_mail" value="30"/>
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
-      <operator activated="true" class="read_csv" compatibility="11.0.001" expanded="true" height="68" name="Countries" width="90" x="849" y="187">
-        <parameter key="csv_file" value="C:\Users\pedro\Desktop\ID-PROJ\data\final_data\dict_countries.txt"/>
-        <parameter key="column_separators" value=";"/>
-        <parameter key="trim_lines" value="false"/>
-        <parameter key="multiline_text" value="false"/>
-        <parameter key="use_quotes" value="true"/>
-        <parameter key="quotes_character" value="&quot;"/>
-        <parameter key="escape_character" value="\"/>
-        <parameter key="skip_comments" value="true"/>
-        <parameter key="comment_characters" value="#"/>
-        <parameter key="starting_row" value="1"/>
-        <parameter key="parse_numbers" value="true"/>
-        <parameter key="decimal_character" value="."/>
-        <parameter key="grouped_digits" value="false"/>
-        <parameter key="grouping_character" value=","/>
-        <parameter key="infinity_representation" value=""/>
-        <parameter key="date_format" value=""/>
-        <parameter key="use_header_row" value="true"/>
-        <parameter key="header_row" value="1"/>
-        <parameter key="first_row_as_names" value="true"/>
-        <list key="annotations"/>
-        <parameter key="time_zone" value="Europe/Lisbon"/>
-        <parameter key="locale" value="English (United States)"/>
-        <parameter key="encoding" value="windows-1252"/>
-        <parameter key="read_all_values_as_polynominal" value="false"/>
-        <list key="data_set_meta_data_information">
-          <parameter key="0" value="2letras.true.polynominal.attribute"/>
-          <parameter key="1" value="3letras.true.polynominal.attribute"/>
-          <parameter key="2" value="nome_inteiro.true.polynominal.attribute"/>
-        </list>
-        <parameter key="read_not_matching_values_as_missings" value="false"/>
-      </operator>
       <operator activated="true" class="read_excel" compatibility="11.0.001" expanded="true" height="68" name="Player_Wages" width="90" x="45" y="34">
         <parameter key="excel_file" value="C:\Users\pedro\Desktop\ID-PROJ\data\final_data\player_wages.xlsx"/>
         <parameter key="sheet_selection" value="sheet number"/>
@@ -72,7 +40,18 @@
         </list>
         <parameter key="read_not_matching_values_as_missings" value="false"/>
       </operator>
-      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes" width="90" x="179" y="34">
+      <operator activated="true" class="filter_examples" compatibility="11.0.001" expanded="true" height="103" name="Filter Examples (2)" width="90" x="179" y="34">
+        <parameter key="parameter_expression" value=""/>
+        <parameter key="condition_class" value="custom_filters"/>
+        <parameter key="invert_filter" value="false"/>
+        <list key="filters_list">
+          <parameter key="filters_entry_key" value="Weekly Wages.is_not_missing."/>
+          <parameter key="filters_entry_key" value="Player.does_not_equal.Player"/>
+        </list>
+        <parameter key="filters_logic_and" value="true"/>
+        <parameter key="filters_check_metadata" value="true"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes" width="90" x="313" y="34">
         <parameter key="type" value="exclude attributes"/>
         <parameter key="attribute_filter_type" value="a subset"/>
         <parameter key="select_attribute" value=""/>
@@ -164,14 +143,7 @@
         </list>
         <parameter key="keep_both_join_attributes" value="false"/>
       </operator>
-      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (2)" width="90" x="581" y="34">
-        <parameter key="type" value="exclude attributes"/>
-        <parameter key="attribute_filter_type" value="a subset"/>
-        <parameter key="select_attribute" value=""/>
-        <parameter key="select_subset" value="player_id"/>
-        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
-      </operator>
-      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (2)" width="90" x="715" y="34">
+      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (2)" width="90" x="581" y="34">
         <list key="function_descriptions">
           <parameter key="Nation" value="cut(Nation,3,length(Nation)-3)"/>
           <parameter key="Season" value="date_get(date_unix,DATE_UNIT_YEAR)"/>
@@ -181,7 +153,7 @@
         <parameter key="keep_all_columns" value="true"/>
         <parameter key="default_time_zone" value="Europe/Lisbon"/>
       </operator>
-      <operator activated="true" class="map" compatibility="11.0.001" expanded="true" height="82" name="Map (3)" width="90" x="849" y="34">
+      <operator activated="true" class="map" compatibility="11.0.001" expanded="true" height="82" name="Map (3)" width="90" x="715" y="34">
         <parameter key="attribute_filter_type" value="single"/>
         <parameter key="attribute" value="Nation"/>
         <parameter key="attributes" value=""/>
@@ -205,28 +177,17 @@
         <parameter key="consider_regular_expressions" value="false"/>
         <parameter key="add_default_mapping" value="false"/>
       </operator>
-      <operator activated="true" class="concurrency:join" compatibility="11.0.001" expanded="true" height="82" name="Join (2)" width="90" x="983" y="34">
-        <parameter key="remove_double_attributes" value="true"/>
-        <parameter key="join_type" value="left"/>
-        <parameter key="use_id_attribute_as_key" value="false"/>
-        <list key="key_attributes">
-          <parameter key="Nation" value="3letras"/>
-        </list>
-        <parameter key="keep_both_join_attributes" value="false"/>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (2)" width="90" x="849" y="34">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="Annual Wages␞Player␞value␞Weekly Wages"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
       </operator>
-      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve" width="90" x="447" y="340">
-        <parameter key="repository_entry" value="../data/raw/df_player_info"/>
-      </operator>
-      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (3)" width="90" x="581" y="340">
-        <list key="function_descriptions">
-          <parameter key="name" value="replaceAll(player_name, &quot; \\(\\d+\\)$&quot;, &quot;&quot;)"/>
-        </list>
-        <parameter key="keep_all_columns" value="true"/>
-        <parameter key="default_time_zone" value="Europe/Lisbon"/>
-      </operator>
-      <operator activated="true" class="map" compatibility="11.0.001" expanded="true" height="82" name="Map - names" width="90" x="715" y="340">
-        <parameter key="attribute_filter_type" value="single"/>
-        <parameter key="attribute" value="name"/>
+      <operator activated="true" class="aggregate" compatibility="11.0.001" expanded="true" height="82" name="Aggregate" width="90" x="983" y="34">
+        <parameter key="use_default_aggregation" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
         <parameter key="attributes" value=""/>
         <parameter key="use_except_expression" value="false"/>
         <parameter key="value_type" value="attribute_value"/>
@@ -237,99 +198,52 @@
         <parameter key="except_block_type" value="value_matrix_row_start"/>
         <parameter key="invert_selection" value="false"/>
         <parameter key="include_special_attributes" value="false"/>
-        <list key="value_mappings">
-          <parameter key="Altay BayÃ„Â±ndÃ„Â±r" value="Altay Bayındır"/>
-          <parameter key="Diego LeÃƒÂ³n" value="Diego León"/>
-          <parameter key="Lisandro MartÃƒÂ­nez" value="Lisandro Martínez"/>
-          <parameter key="Benjamin Sesko" value="Benjamin Šeško"/>
+        <parameter key="default_aggregation_function" value="average"/>
+        <list key="aggregation_attributes">
+          <parameter key="value" value="maximum"/>
         </list>
-        <parameter key="consider_regular_expressions" value="false"/>
-        <parameter key="add_default_mapping" value="false"/>
+        <parameter key="group_by_attributes" value="Annual Wages|Player|Weekly Wages"/>
+        <parameter key="count_all_combinations" value="false"/>
+        <parameter key="only_distinct" value="false"/>
+        <parameter key="ignore_missings" value="true"/>
       </operator>
-      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (3)" width="90" x="849" y="340">
-        <parameter key="type" value="exclude attributes"/>
-        <parameter key="attribute_filter_type" value="a subset"/>
-        <parameter key="select_attribute" value=""/>
-        <parameter key="select_subset" value="player_slug␞player_name"/>
-        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      <operator activated="true" class="order_attributes" compatibility="11.0.001" expanded="true" height="82" name="Reorder Attributes" width="90" x="1117" y="34">
+        <parameter key="sort_mode" value="user specified"/>
+        <parameter key="attribute_ordering" value="Player|value|Weekly Wages|Annual Wages|maximum(value)"/>
+        <parameter key="use_regular_expressions" value="false"/>
+        <parameter key="handle_unmatched" value="append"/>
+        <parameter key="sort_direction" value="ascending"/>
       </operator>
-      <operator activated="true" class="multiply" compatibility="11.0.001" expanded="true" height="103" name="Multiply" width="90" x="983" y="340"/>
-      <operator activated="true" class="multiply" compatibility="11.0.001" expanded="true" height="103" name="Multiply (2)" width="90" x="1117" y="34"/>
-      <operator activated="true" class="concurrency:join" compatibility="11.0.001" expanded="true" height="82" name="Join (4)" width="90" x="1251" y="340">
-        <parameter key="remove_double_attributes" value="true"/>
-        <parameter key="join_type" value="inner"/>
-        <parameter key="use_id_attribute_as_key" value="false"/>
-        <list key="key_attributes">
-          <parameter key="Player" value="name"/>
-        </list>
-        <parameter key="keep_both_join_attributes" value="false"/>
-      </operator>
-      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (4)" width="90" x="1385" y="340">
-        <parameter key="type" value="exclude attributes"/>
-        <parameter key="attribute_filter_type" value="a subset"/>
-        <parameter key="select_attribute" value="contract_expires"/>
-        <parameter key="select_subset" value="2letras␞Annual Wages␞contract_expires␞date_unix␞Season␞value␞Weekly Wages␞Nation"/>
-        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
-      </operator>
-      <operator activated="true" class="concurrency:join" compatibility="11.0.001" expanded="true" height="82" name="Join (3)" width="90" x="1385" y="34">
-        <parameter key="remove_double_attributes" value="true"/>
-        <parameter key="join_type" value="inner"/>
-        <parameter key="use_id_attribute_as_key" value="false"/>
-        <list key="key_attributes">
-          <parameter key="Player" value="name"/>
-        </list>
-        <parameter key="keep_both_join_attributes" value="false"/>
-      </operator>
-      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (5)" width="90" x="1519" y="34">
-        <parameter key="type" value="include attributes"/>
-        <parameter key="attribute_filter_type" value="a subset"/>
-        <parameter key="select_attribute" value=""/>
-        <parameter key="select_subset" value="Player␞Weekly Wages␞Annual Wages␞contract_expires␞Season␞value"/>
-        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
-      </operator>
-      <operator activated="true" class="blending:rename" compatibility="11.0.001" expanded="true" height="82" name="Rename" width="90" x="1519" y="340">
+      <operator activated="true" class="blending:rename" compatibility="11.0.001" expanded="true" height="82" name="Rename" width="90" x="1251" y="34">
         <list key="rename attributes">
-          <parameter key="nome_inteiro" value="Country"/>
+          <parameter key="Annual Wages" value="annual_wages"/>
+          <parameter key="maximum(value)" value="value"/>
+          <parameter key="Weekly Wages" value="weekly_wages"/>
+          <parameter key="Player" value="player"/>
         </list>
         <parameter key="from_attribute" value=""/>
         <parameter key="to_attribute" value=""/>
       </operator>
-      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store" width="90" x="1653" y="340">
-        <parameter key="repository_entry" value="../data/processed/df_player_info"/>
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store" width="90" x="1385" y="34">
+        <parameter key="repository_entry" value="../data/processed/contracts"/>
       </operator>
-      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (2)" width="90" x="1653" y="34">
-        <parameter key="repository_entry" value="../data/processed/df_player_contracts"/>
-      </operator>
-      <connect from_op="Countries" from_port="output" to_op="Join (2)" to_port="right"/>
-      <connect from_op="Player_Wages" from_port="output" to_op="Select Attributes" to_port="example set input"/>
+      <connect from_op="Player_Wages" from_port="output" to_op="Filter Examples (2)" to_port="example set input"/>
+      <connect from_op="Filter Examples (2)" from_port="example set output" to_op="Select Attributes" to_port="example set input"/>
       <connect from_op="Select Attributes" from_port="example set output" to_op="Join" to_port="left"/>
       <connect from_op="Player_Market_Value" from_port="output" to_op="Filter Examples" to_port="example set input"/>
       <connect from_op="Filter Examples" from_port="example set output" to_op="Map" to_port="example set input"/>
       <connect from_op="Map" from_port="example set output" to_op="Join" to_port="right"/>
-      <connect from_op="Join" from_port="join" to_op="Select Attributes (2)" to_port="example set input"/>
-      <connect from_op="Select Attributes (2)" from_port="example set output" to_op="Generate Attributes (2)" to_port="table input"/>
+      <connect from_op="Join" from_port="join" to_op="Generate Attributes (2)" to_port="table input"/>
       <connect from_op="Generate Attributes (2)" from_port="table output" to_op="Map (3)" to_port="example set input"/>
-      <connect from_op="Map (3)" from_port="example set output" to_op="Join (2)" to_port="left"/>
-      <connect from_op="Join (2)" from_port="join" to_op="Multiply (2)" to_port="input"/>
-      <connect from_op="Retrieve" from_port="output" to_op="Generate Attributes (3)" to_port="table input"/>
-      <connect from_op="Generate Attributes (3)" from_port="table output" to_op="Map - names" to_port="example set input"/>
-      <connect from_op="Map - names" from_port="example set output" to_op="Select Attributes (3)" to_port="example set input"/>
-      <connect from_op="Select Attributes (3)" from_port="example set output" to_op="Multiply" to_port="input"/>
-      <connect from_op="Multiply" from_port="output 1" to_op="Join (3)" to_port="right"/>
-      <connect from_op="Multiply" from_port="output 2" to_op="Join (4)" to_port="right"/>
-      <connect from_op="Multiply (2)" from_port="output 1" to_op="Join (3)" to_port="left"/>
-      <connect from_op="Multiply (2)" from_port="output 2" to_op="Join (4)" to_port="left"/>
-      <connect from_op="Join (4)" from_port="join" to_op="Select Attributes (4)" to_port="example set input"/>
-      <connect from_op="Select Attributes (4)" from_port="example set output" to_op="Rename" to_port="example set input"/>
-      <connect from_op="Join (3)" from_port="join" to_op="Select Attributes (5)" to_port="example set input"/>
-      <connect from_op="Select Attributes (5)" from_port="example set output" to_op="Store (2)" to_port="input"/>
+      <connect from_op="Map (3)" from_port="example set output" to_op="Select Attributes (2)" to_port="example set input"/>
+      <connect from_op="Select Attributes (2)" from_port="example set output" to_op="Aggregate" to_port="example set input"/>
+      <connect from_op="Aggregate" from_port="example set output" to_op="Reorder Attributes" to_port="example set input"/>
+      <connect from_op="Reorder Attributes" from_port="example set output" to_op="Rename" to_port="example set input"/>
       <connect from_op="Rename" from_port="example set output" to_op="Store" to_port="input"/>
-      <connect from_op="Store" from_port="through" to_port="result 2"/>
-      <connect from_op="Store (2)" from_port="through" to_port="result 1"/>
+      <connect from_op="Store" from_port="through" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>
-      <portSpacing port="sink_result 3" spacing="0"/>
     </process>
   </operator>
 </process>

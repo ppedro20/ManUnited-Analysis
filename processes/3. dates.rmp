@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><process version="12.0.002">
+<?xml version="1.0" encoding="UTF-8"?><process version="11.0.001">
   <context>
     <input/>
     <output/>
     <macros/>
   </context>
-  <operator activated="true" class="process" compatibility="12.0.002" expanded="true" name="Process">
+  <operator activated="true" class="process" compatibility="11.0.001" expanded="true" name="Process">
     <parameter key="logverbosity" value="init"/>
     <parameter key="random_seed" value="2001"/>
     <parameter key="send_mail" value="never"/>

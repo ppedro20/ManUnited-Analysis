@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="11.0.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="11.0.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve gps match load" width="90" x="45" y="136">
+        <parameter key="repository_entry" value="../data/source/mongodb/gps_match_load"/>
+      </operator>
+      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (3)" width="90" x="179" y="136">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="␞player_id␞match_date␞distance_km␞hsr_m␞sprints␞player_name"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_gk" width="90" x="45" y="442">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_gk"/>
+      </operator>
+      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (5)" width="90" x="179" y="442">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value=""/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_creation" width="90" x="45" y="238">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_creation"/>
+      </operator>
+      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (6)" width="90" x="179" y="238">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="␞Player␞GCA␞Fld␞Def␞TO␞Sh␞Pos"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_defensive" width="90" x="45" y="340">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_defensive"/>
+      </operator>
+      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (7)" width="90" x="179" y="340">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="␞Player␞Att␞Pass␞Sh␞Tkl␞Int␞Err␞Clr␞Blocks"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_misc" width="90" x="45" y="544">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_misc"/>
+      </operator>
+      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (8)" width="90" x="179" y="544">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="all attributes"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value=""/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_pass_types" width="90" x="45" y="646">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_pass_types"/>
+      </operator>
+      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (9)" width="90" x="179" y="646">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="all attributes"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value=""/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_passing" width="90" x="45" y="748">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_passing"/>
+      </operator>
+      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (10)" width="90" x="179" y="748">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="all attributes"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value=""/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_playing_time" width="90" x="45" y="850">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_playing_time"/>
+      </operator>
+      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (11)" width="90" x="179" y="850">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="all attributes"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value=""/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_possession" width="90" x="45" y="952">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_possession"/>
+      </operator>
+      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (12)" width="90" x="179" y="952">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="all attributes"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value=""/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_shooting" width="90" x="45" y="1054">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_shooting"/>
+      </operator>
+      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (13)" width="90" x="179" y="1054">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="all attributes"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value=""/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="read_excel" compatibility="11.0.001" expanded="true" height="68" name="Read Excel" width="90" x="45" y="34">
+        <parameter key="excel_file" value="C:/Users/pedro/Desktop/ID-PROJ/data/final_data/match_stats.xlsx"/>
+        <parameter key="sheet_selection" value="sheet number"/>
+        <parameter key="sheet_number" value="1"/>
+        <parameter key="imported_cell_range" value="A1"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="use_header_row" value="true"/>
+        <parameter key="header_row" value="1"/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="date_format" value=""/>
+        <parameter key="time_zone" value="Europe/Lisbon"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (4)" width="90" x="179" y="34">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="␞Date␞Comp␞Round␞Result␞Venue␞Opponent␞GF␞GA"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store" width="90" x="313" y="34">
+        <parameter key="repository_entry" value="../data/processed/matches"/>
+      </operator>
+      <connect from_op="Retrieve gps match load" from_port="output" to_op="Select Attributes (3)" to_port="example set input"/>
+      <connect from_op="Retrieve player_stats_gk" from_port="output" to_op="Select Attributes (5)" to_port="example set input"/>
+      <connect from_op="Retrieve player_stats_creation" from_port="output" to_op="Select Attributes (6)" to_port="example set input"/>
+      <connect from_op="Retrieve player_stats_defensive" from_port="output" to_op="Select Attributes (7)" to_port="example set input"/>
+      <connect from_op="Retrieve player_stats_misc" from_port="output" to_op="Select Attributes (8)" to_port="example set input"/>
+      <connect from_op="Retrieve player_stats_pass_types" from_port="output" to_op="Select Attributes (9)" to_port="example set input"/>
+      <connect from_op="Retrieve player_stats_passing" from_port="output" to_op="Select Attributes (10)" to_port="example set input"/>
+      <connect from_op="Retrieve player_stats_playing_time" from_port="output" to_op="Select Attributes (11)" to_port="example set input"/>
+      <connect from_op="Retrieve player_stats_possession" from_port="output" to_op="Select Attributes (12)" to_port="example set input"/>
+      <connect from_op="Retrieve player_stats_shooting" from_port="output" to_op="Select Attributes (13)" to_port="example set input"/>
+      <connect from_op="Read Excel" from_port="output" to_op="Select Attributes (4)" to_port="example set input"/>
+      <connect from_op="Select Attributes (4)" from_port="example set output" to_op="Store" to_port="input"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="538" y="540">create categories like fm</description>
+    </process>
+  </operator>
+</process>

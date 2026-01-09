@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><process version="12.0.002">
+<?xml version="1.0" encoding="UTF-8"?><process version="11.0.001">
   <context>
     <input/>
     <output/>
     <macros/>
   </context>
-  <operator activated="true" class="process" compatibility="12.0.002" expanded="true" name="Process">
+  <operator activated="true" class="process" compatibility="11.0.001" expanded="true" name="Process">
     <parameter key="logverbosity" value="init"/>
     <parameter key="random_seed" value="2001"/>
     <parameter key="send_mail" value="never"/>
@@ -29,7 +29,7 @@
         <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
         <parameter key="preserve_attribute_order" value="false"/>
       </operator>
-      <operator activated="true" class="store" compatibility="12.0.002" expanded="true" height="68" name="Store" width="90" x="313" y="34">
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store" width="90" x="313" y="34">
         <parameter key="repository_entry" value="../data/source/mongodb/player_daily_status"/>
       </operator>
       <operator activated="true" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Acute_Chronic_Load" width="90" x="45" y="340">
@@ -49,7 +49,7 @@
         <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
         <parameter key="preserve_attribute_order" value="false"/>
       </operator>
-      <operator activated="true" class="store" compatibility="12.0.002" expanded="true" height="68" name="Store (3)" width="90" x="313" y="340">
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (3)" width="90" x="313" y="340">
         <parameter key="repository_entry" value="../data/source/mongodb/acute_chronic_load"/>
       </operator>
       <operator activated="true" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Training_Sessions" width="90" x="45" y="187">
@@ -69,7 +69,7 @@
         <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
         <parameter key="preserve_attribute_order" value="false"/>
       </operator>
-      <operator activated="true" class="store" compatibility="12.0.002" expanded="true" height="68" name="Store (2)" width="90" x="313" y="187">
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (2)" width="90" x="313" y="187">
         <parameter key="repository_entry" value="../data/source/mongodb/training_sessions"/>
       </operator>
       <operator activated="true" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="GPS_Match_Load" width="90" x="45" y="493">
@@ -89,10 +89,10 @@
         <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
         <parameter key="preserve_attribute_order" value="false"/>
       </operator>
-      <operator activated="true" class="store" compatibility="12.0.002" expanded="true" height="68" name="Store (4)" width="90" x="313" y="493">
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (4)" width="90" x="313" y="493">
         <parameter key="repository_entry" value="../data/source/mongodb/gps_match_load"/>
       </operator>
-      <operator activated="true" class="jdbc_connectors:read_database" compatibility="12.0.002" expanded="true" height="82" name="Player_info" width="90" x="45" y="641">
+      <operator activated="true" class="jdbc_connectors:read_database" compatibility="11.0.001" expanded="true" height="82" name="Player_info" width="90" x="45" y="641">
         <parameter key="define_connection" value="repository"/>
         <parameter key="connection_entry" value="/Connections/mysql"/>
         <parameter key="database_system" value="MySQL"/>
@@ -120,7 +120,7 @@
         <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
         <parameter key="preserve_attribute_order" value="false"/>
       </operator>
-      <operator activated="true" class="store" compatibility="12.0.002" expanded="true" height="68" name="Store (6)" width="90" x="782" y="34">
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (6)" width="90" x="782" y="34">
         <parameter key="repository_entry" value="../data/source/mongodb/player_stats_possession"/>
       </operator>
       <operator activated="true" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Player_Stats_Misc" width="90" x="514" y="187">
@@ -140,7 +140,7 @@
         <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
         <parameter key="preserve_attribute_order" value="false"/>
       </operator>
-      <operator activated="true" class="store" compatibility="12.0.002" expanded="true" height="68" name="Store (7)" width="90" x="782" y="187">
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (7)" width="90" x="782" y="187">
         <parameter key="repository_entry" value="../data/source/mongodb/player_stats_misc"/>
       </operator>
       <operator activated="true" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Player_Stats_Pass_types" width="90" x="514" y="340">
@@ -160,7 +160,7 @@
         <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
         <parameter key="preserve_attribute_order" value="false"/>
       </operator>
-      <operator activated="true" class="store" compatibility="12.0.002" expanded="true" height="68" name="Store (8)" width="90" x="782" y="340">
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (8)" width="90" x="782" y="340">
         <parameter key="repository_entry" value="../data/source/mongodb/player_stats_pass_types"/>
       </operator>
       <operator activated="true" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Player_Stats_gk" width="90" x="983" y="646">
@@ -180,7 +180,7 @@
         <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
         <parameter key="preserve_attribute_order" value="false"/>
       </operator>
-      <operator activated="true" class="store" compatibility="12.0.002" expanded="true" height="68" name="Store (10)" width="90" x="1251" y="646">
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (10)" width="90" x="1251" y="646">
         <parameter key="repository_entry" value="../data/source/mongodb/player_stats_gk"/>
       </operator>
       <operator activated="true" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Player_Stats_Playing_Time (2)" width="90" x="514" y="493">
@@ -200,7 +200,7 @@
         <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
         <parameter key="preserve_attribute_order" value="false"/>
       </operator>
-      <operator activated="true" class="store" compatibility="12.0.002" expanded="true" height="68" name="Store (9)" width="90" x="782" y="493">
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (9)" width="90" x="782" y="493">
         <parameter key="repository_entry" value="../data/source/mongodb/player_stats_playing_time"/>
       </operator>
       <operator activated="true" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Player_Stats_Creation" width="90" x="983" y="34">
@@ -220,7 +220,7 @@
         <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
         <parameter key="preserve_attribute_order" value="false"/>
       </operator>
-      <operator activated="true" class="store" compatibility="12.0.002" expanded="true" height="68" name="Store (11)" width="90" x="1251" y="34">
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (11)" width="90" x="1251" y="34">
         <parameter key="repository_entry" value="../data/source/mongodb/player_stats_creation"/>
       </operator>
       <operator activated="true" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Player_Stats_Defensive" width="90" x="983" y="187">
@@ -240,7 +240,7 @@
         <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
         <parameter key="preserve_attribute_order" value="false"/>
       </operator>
-      <operator activated="true" class="store" compatibility="12.0.002" expanded="true" height="68" name="Store (12)" width="90" x="1251" y="187">
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (12)" width="90" x="1251" y="187">
         <parameter key="repository_entry" value="../data/source/mongodb/player_stats_defensive"/>
       </operator>
       <operator activated="true" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Player_Stats_Passing" width="90" x="983" y="340">
@@ -260,7 +260,7 @@
         <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
         <parameter key="preserve_attribute_order" value="false"/>
       </operator>
-      <operator activated="true" class="store" compatibility="12.0.002" expanded="true" height="68" name="Store (13)" width="90" x="1251" y="340">
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (13)" width="90" x="1251" y="340">
         <parameter key="repository_entry" value="../data/source/mongodb/player_stats_passing"/>
       </operator>
       <operator activated="true" class="nosql:mongodb_document_reader" compatibility="10.0.000" expanded="true" height="124" name="Player_Stats_Shooting" width="90" x="983" y="493">
@@ -280,10 +280,10 @@
         <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
         <parameter key="preserve_attribute_order" value="false"/>
       </operator>
-      <operator activated="true" class="store" compatibility="12.0.002" expanded="true" height="68" name="Store (15)" width="90" x="1251" y="493">
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (15)" width="90" x="1251" y="493">
         <parameter key="repository_entry" value="../data/source/mongodb/player_stats_shooting"/>
       </operator>
-      <operator activated="true" class="nominal_to_date" compatibility="12.0.002" expanded="true" height="82" name="Nominal to Date" width="90" x="179" y="646">
+      <operator activated="true" class="nominal_to_date" compatibility="11.0.001" expanded="true" height="82" name="Nominal to Date" width="90" x="179" y="646">
         <parameter key="attribute_name" value="date_of_birth"/>
         <parameter key="date_type" value="date"/>
         <parameter key="date_format" value="dd/MM/yyyy"/>
@@ -291,7 +291,7 @@
         <parameter key="locale" value="English (United States)"/>
         <parameter key="keep_old_attribute" value="false"/>
       </operator>
-      <operator activated="true" class="blending:generate_columns" compatibility="12.0.002" expanded="true" height="82" name="Generate Attributes" width="90" x="313" y="646">
+      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes" width="90" x="313" y="646">
         <list key="function_descriptions">
           <parameter key="name" value="replaceAll(player_name, &quot; \\(\\d+\\)$&quot;, &quot;&quot;)"/>
           <parameter key="position" value="replaceAll(position, &quot;.* - &quot;, &quot;&quot;)"/>
@@ -300,7 +300,7 @@
         <parameter key="keep_all_columns" value="true"/>
         <parameter key="default_time_zone" value="Europe/Lisbon"/>
       </operator>
-      <operator activated="true" class="store" compatibility="12.0.002" expanded="true" height="68" name="Store (5)" width="90" x="447" y="646">
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store (5)" width="90" x="447" y="646">
         <parameter key="repository_entry" value="../data/source/mysql/player_info"/>
       </operator>
       <connect from_op="Player_Daily_Status" from_port="collection" to_op="pds_data" to_port="documents 1"/>
