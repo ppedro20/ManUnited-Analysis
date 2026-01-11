@@ -12,148 +12,538 @@
     <parameter key="process_duration_for_mail" value="30"/>
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
-      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve gps match load" width="90" x="45" y="136">
-        <parameter key="repository_entry" value="../data/source/mongodb/gps_match_load"/>
-      </operator>
-      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (3)" width="90" x="179" y="136">
-        <parameter key="type" value="include attributes"/>
-        <parameter key="attribute_filter_type" value="a subset"/>
-        <parameter key="select_attribute" value=""/>
-        <parameter key="select_subset" value="␞player_id␞match_date␞distance_km␞hsr_m␞sprints␞player_name"/>
-        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
-      </operator>
-      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_gk" width="90" x="45" y="442">
-        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_gk"/>
-      </operator>
-      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (5)" width="90" x="179" y="442">
-        <parameter key="type" value="include attributes"/>
-        <parameter key="attribute_filter_type" value="a subset"/>
-        <parameter key="select_attribute" value=""/>
-        <parameter key="select_subset" value=""/>
-        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
-      </operator>
-      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_creation" width="90" x="45" y="238">
-        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_creation"/>
-      </operator>
-      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (6)" width="90" x="179" y="238">
-        <parameter key="type" value="include attributes"/>
-        <parameter key="attribute_filter_type" value="a subset"/>
-        <parameter key="select_attribute" value=""/>
-        <parameter key="select_subset" value="␞Player␞GCA␞Fld␞Def␞TO␞Sh␞Pos"/>
-        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
-      </operator>
-      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_defensive" width="90" x="45" y="340">
-        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_defensive"/>
-      </operator>
-      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (7)" width="90" x="179" y="340">
-        <parameter key="type" value="include attributes"/>
-        <parameter key="attribute_filter_type" value="a subset"/>
-        <parameter key="select_attribute" value=""/>
-        <parameter key="select_subset" value="␞Player␞Att␞Pass␞Sh␞Tkl␞Int␞Err␞Clr␞Blocks"/>
-        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
-      </operator>
-      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_misc" width="90" x="45" y="544">
+      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve stats_misc" width="90" x="45" y="34">
         <parameter key="repository_entry" value="../data/source/mongodb/player_stats_misc"/>
       </operator>
-      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (8)" width="90" x="179" y="544">
-        <parameter key="type" value="include attributes"/>
-        <parameter key="attribute_filter_type" value="all attributes"/>
-        <parameter key="select_attribute" value=""/>
-        <parameter key="select_subset" value=""/>
-        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
-      </operator>
-      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_pass_types" width="90" x="45" y="646">
-        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_pass_types"/>
-      </operator>
-      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (9)" width="90" x="179" y="646">
-        <parameter key="type" value="include attributes"/>
-        <parameter key="attribute_filter_type" value="all attributes"/>
-        <parameter key="select_attribute" value=""/>
-        <parameter key="select_subset" value=""/>
-        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
-      </operator>
-      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_passing" width="90" x="45" y="748">
-        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_passing"/>
-      </operator>
-      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (10)" width="90" x="179" y="748">
-        <parameter key="type" value="include attributes"/>
-        <parameter key="attribute_filter_type" value="all attributes"/>
-        <parameter key="select_attribute" value=""/>
-        <parameter key="select_subset" value=""/>
-        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
-      </operator>
-      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_playing_time" width="90" x="45" y="850">
-        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_playing_time"/>
-      </operator>
-      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (11)" width="90" x="179" y="850">
-        <parameter key="type" value="include attributes"/>
-        <parameter key="attribute_filter_type" value="all attributes"/>
-        <parameter key="select_attribute" value=""/>
-        <parameter key="select_subset" value=""/>
-        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
-      </operator>
-      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_possession" width="90" x="45" y="952">
-        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_possession"/>
-      </operator>
-      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (12)" width="90" x="179" y="952">
-        <parameter key="type" value="include attributes"/>
-        <parameter key="attribute_filter_type" value="all attributes"/>
-        <parameter key="select_attribute" value=""/>
-        <parameter key="select_subset" value=""/>
-        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
-      </operator>
-      <operator activated="false" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_shooting" width="90" x="45" y="1054">
-        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_shooting"/>
-      </operator>
-      <operator activated="false" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (13)" width="90" x="179" y="1054">
-        <parameter key="type" value="include attributes"/>
-        <parameter key="attribute_filter_type" value="all attributes"/>
-        <parameter key="select_attribute" value=""/>
-        <parameter key="select_subset" value=""/>
-        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
-      </operator>
-      <operator activated="true" class="read_excel" compatibility="11.0.001" expanded="true" height="68" name="Read Excel" width="90" x="45" y="34">
-        <parameter key="excel_file" value="C:/Users/pedro/Desktop/ID-PROJ/data/final_data/match_stats.xlsx"/>
-        <parameter key="sheet_selection" value="sheet number"/>
-        <parameter key="sheet_number" value="1"/>
-        <parameter key="imported_cell_range" value="A1"/>
-        <parameter key="encoding" value="SYSTEM"/>
-        <parameter key="use_header_row" value="true"/>
-        <parameter key="header_row" value="1"/>
-        <parameter key="first_row_as_names" value="true"/>
-        <list key="annotations"/>
-        <parameter key="date_format" value=""/>
-        <parameter key="time_zone" value="Europe/Lisbon"/>
-        <parameter key="locale" value="English (United States)"/>
-        <parameter key="read_all_values_as_polynominal" value="false"/>
-        <list key="data_set_meta_data_information"/>
-        <parameter key="read_not_matching_values_as_missings" value="true"/>
-      </operator>
-      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (4)" width="90" x="179" y="34">
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (2)" width="90" x="179" y="34">
         <parameter key="type" value="include attributes"/>
         <parameter key="attribute_filter_type" value="a subset"/>
         <parameter key="select_attribute" value=""/>
-        <parameter key="select_subset" value="␞Date␞Comp␞Round␞Result␞Venue␞Opponent␞GF␞GA"/>
+        <parameter key="select_subset" value="Player␞90s␞Recov␞Fld"/>
         <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
       </operator>
-      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store" width="90" x="313" y="34">
-        <parameter key="repository_entry" value="../data/processed/matches"/>
+      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve stats_possession" width="90" x="45" y="136">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_possession"/>
       </operator>
-      <connect from_op="Retrieve gps match load" from_port="output" to_op="Select Attributes (3)" to_port="example set input"/>
-      <connect from_op="Retrieve player_stats_gk" from_port="output" to_op="Select Attributes (5)" to_port="example set input"/>
-      <connect from_op="Retrieve player_stats_creation" from_port="output" to_op="Select Attributes (6)" to_port="example set input"/>
-      <connect from_op="Retrieve player_stats_defensive" from_port="output" to_op="Select Attributes (7)" to_port="example set input"/>
-      <connect from_op="Retrieve player_stats_misc" from_port="output" to_op="Select Attributes (8)" to_port="example set input"/>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (3)" width="90" x="179" y="136">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="Carries␞Player␞PrgC␞PrgDist␞Succ%␞90s"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes" width="90" x="313" y="136">
+        <list key="function_descriptions">
+          <parameter key="progressions_count" value="PrgC/[90s]"/>
+          <parameter key="progressions_distance" value="PrgDist/[90s]"/>
+          <parameter key="carries" value="Carries/[90s]"/>
+        </list>
+        <parameter key="keep_all_columns" value="true"/>
+        <parameter key="default_time_zone" value="Europe/Lisbon"/>
+      </operator>
+      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (2)" width="90" x="313" y="34">
+        <list key="function_descriptions">
+          <parameter key="recoveries" value="Recov/[90s]"/>
+        </list>
+        <parameter key="keep_all_columns" value="true"/>
+        <parameter key="default_time_zone" value="Europe/Lisbon"/>
+      </operator>
+      <operator activated="true" class="concurrency:join" compatibility="11.0.001" expanded="true" height="82" name="Join" width="90" x="447" y="34">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="false"/>
+        <list key="key_attributes">
+          <parameter key="Player" value="Player"/>
+        </list>
+        <parameter key="keep_both_join_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (4)" width="90" x="581" y="34">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="Player␞90s␞progressions_count␞progressions_distance␞recoveries␞Succ%"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="replace_missing_values" compatibility="11.0.001" expanded="true" height="103" name="Replace Missing Values" width="90" x="715" y="34">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="default" value="zero"/>
+        <list key="columns"/>
+      </operator>
+      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (3)" width="90" x="849" y="34">
+        <list key="function_descriptions">
+          <parameter key="pace" value="0.25*progressions_count+0.25*progressions_distance+0.25*recoveries+0.25*[Succ%]"/>
+        </list>
+        <parameter key="keep_all_columns" value="true"/>
+        <parameter key="default_time_zone" value="Europe/Lisbon"/>
+      </operator>
+      <operator activated="true" class="order_attributes" compatibility="11.0.001" expanded="true" height="82" name="Reorder Attributes" width="90" x="983" y="34">
+        <parameter key="sort_mode" value="user specified"/>
+        <parameter key="attribute_ordering" value="Player|pace"/>
+        <parameter key="use_regular_expressions" value="false"/>
+        <parameter key="handle_unmatched" value="append"/>
+        <parameter key="sort_direction" value="ascending"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (7)" width="90" x="1117" y="34">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="Player␞pace"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_shooting" width="90" x="45" y="238">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_shooting"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (5)" width="90" x="179" y="238">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="90s␞G/Sh␞np:G-xG␞npxG␞Player␞Sh/90␞SoT/90␞Dist"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="replace_missing_values" compatibility="11.0.001" expanded="true" height="103" name="Replace Missing Values (2)" width="90" x="313" y="238">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="default" value="zero"/>
+        <list key="columns"/>
+      </operator>
+      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (4)" width="90" x="447" y="238">
+        <list key="function_descriptions">
+          <parameter key="shooting" value="[Sh/90]*0.25+[SoT/90]*0.25+[G/Sh]*0.2+[np:G-xG]*0.2+(npxG/[Sh/90])*0.1"/>
+        </list>
+        <parameter key="keep_all_columns" value="true"/>
+        <parameter key="default_time_zone" value="Europe/Lisbon"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (6)" width="90" x="581" y="238">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="Player␞shooting"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="concurrency:join" compatibility="11.0.001" expanded="true" height="82" name="Join (2)" width="90" x="1251" y="34">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="false"/>
+        <list key="key_attributes">
+          <parameter key="Player" value="Player"/>
+        </list>
+        <parameter key="keep_both_join_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_passing" width="90" x="45" y="391">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_passing"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (8)" width="90" x="179" y="391">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="Cmp%␞KP␞Player␞PPA␞PrgDist␞PrgP␞xA␞90s"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_pass_types" width="90" x="45" y="493">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_pass_types"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (9)" width="90" x="179" y="493">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="Player␞Sw␞TB"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="concurrency:join" compatibility="11.0.001" expanded="true" height="82" name="Join (3)" width="90" x="313" y="391">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="false"/>
+        <list key="key_attributes">
+          <parameter key="Player" value="Player"/>
+        </list>
+        <parameter key="keep_both_join_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="replace_missing_values" compatibility="11.0.001" expanded="true" height="103" name="Replace Missing Values (3)" width="90" x="447" y="391">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="default" value="zero"/>
+        <list key="columns"/>
+      </operator>
+      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (5)" width="90" x="581" y="391">
+        <list key="function_descriptions">
+          <parameter key="kp_per90" value="KP/[90s]"/>
+          <parameter key="xa_per90" value="xA/[90s]"/>
+          <parameter key="progression" value="PrgP+PrgDist"/>
+          <parameter key="ppa_per90" value="PPA/[90s]"/>
+          <parameter key="tb_per90" value="TB/[90s]"/>
+        </list>
+        <parameter key="keep_all_columns" value="true"/>
+        <parameter key="default_time_zone" value="Europe/Lisbon"/>
+      </operator>
+      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (6)" width="90" x="715" y="391">
+        <list key="function_descriptions">
+          <parameter key="passing" value="[Cmp%]*0.2+kp_per90*0.2+xa_per90*0.2+progression*0.1+ppa_per90*0.15+tb_per90*0.15"/>
+        </list>
+        <parameter key="keep_all_columns" value="true"/>
+        <parameter key="default_time_zone" value="Europe/Lisbon"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (10)" width="90" x="849" y="391">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="Player␞passing"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_possession" width="90" x="45" y="646">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_possession"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (11)" width="90" x="179" y="646">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="Dis␞Mis␞Player␞Succ␞Succ%␞Tkld␞Tkld%␞Touches␞90s"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="replace_missing_values" compatibility="11.0.001" expanded="true" height="103" name="Replace Missing Values (4)" width="90" x="313" y="646">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="default" value="zero"/>
+        <list key="columns"/>
+      </operator>
+      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (7)" width="90" x="447" y="646">
+        <list key="function_descriptions">
+          <parameter key="take_on_efficiency" value="Succ/(Succ/Tkld)"/>
+          <parameter key="ball_security" value="1 - (Mis + Dis) / Touches"/>
+          <parameter key="succ_per90" value="Succ/[90s]"/>
+        </list>
+        <parameter key="keep_all_columns" value="true"/>
+        <parameter key="default_time_zone" value="Europe/Lisbon"/>
+      </operator>
+      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (8)" width="90" x="581" y="646">
+        <list key="function_descriptions">
+          <parameter key="dribble" value="succ_per90*0.3+[Succ%]*0.25+take_on_efficiency*0.2+ball_security*0.25"/>
+        </list>
+        <parameter key="keep_all_columns" value="true"/>
+        <parameter key="default_time_zone" value="Europe/Lisbon"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (12)" width="90" x="715" y="646">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="Player␞dribble"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="concurrency:join" compatibility="11.0.001" expanded="true" height="82" name="Join (4)" width="90" x="983" y="391">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="false"/>
+        <list key="key_attributes">
+          <parameter key="Player" value="Player"/>
+        </list>
+        <parameter key="keep_both_join_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="concurrency:join" compatibility="11.0.001" expanded="true" height="82" name="Join (5)" width="90" x="1385" y="34">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="false"/>
+        <list key="key_attributes">
+          <parameter key="Player" value="Player"/>
+        </list>
+        <parameter key="keep_both_join_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_defensive" width="90" x="45" y="799">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_defensive"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (13)" width="90" x="179" y="799">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="Player␞90s␞Tkl+Int␞Tkl%␞Int␞Blocks␞Clr␞Err␞Def 3rd"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (9)" width="90" x="313" y="799">
+        <list key="function_descriptions">
+          <parameter key="int_per90" value="Int/[90s]"/>
+          <parameter key="blocks_per90" value="Blocks/[90s]"/>
+          <parameter key="clr_per90" value="Clr/[90s]"/>
+          <parameter key="def3rd_per90" value="[Def 3rd]/[90s]"/>
+          <parameter key="err_per90" value="Err/[90s]"/>
+          <parameter key="tkl_int_per90" value="[Tkl+Int]/[90s]"/>
+        </list>
+        <parameter key="keep_all_columns" value="true"/>
+        <parameter key="default_time_zone" value="Europe/Lisbon"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (14)" width="90" x="447" y="799">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="blocks_per90␞clr_per90␞def3rd_per90␞err_per90␞int_per90␞Player␞tkl_int_per90␞Tkl%"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="replace_missing_values" compatibility="11.0.001" expanded="true" height="103" name="Replace Missing Values (5)" width="90" x="581" y="799">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="default" value="zero"/>
+        <list key="columns"/>
+      </operator>
+      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (10)" width="90" x="715" y="799">
+        <list key="function_descriptions">
+          <parameter key="defensive" value="tkl_int_per90*0.35+[Tkl%]*0.2+blocks_per90*0.15+clr_per90*0.15+def3rd_per90*0.15+err_per90*0.1"/>
+        </list>
+        <parameter key="keep_all_columns" value="true"/>
+        <parameter key="default_time_zone" value="Europe/Lisbon"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (15)" width="90" x="849" y="799">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="Player␞defensive"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_misc" width="90" x="45" y="952">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_misc"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (17)" width="90" x="179" y="952">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="Fld␞Player␞Recov␞Won␞Won%␞90s"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (11)" width="90" x="313" y="952">
+        <list key="function_descriptions">
+          <parameter key="workrate" value="Recov/[90s]"/>
+          <parameter key="duels_per90" value="Won/[90s]"/>
+          <parameter key="fls_per90" value="Fld/[90s]"/>
+        </list>
+        <parameter key="keep_all_columns" value="true"/>
+        <parameter key="default_time_zone" value="Europe/Lisbon"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats_playing_time" width="90" x="45" y="1054">
+        <parameter key="repository_entry" value="../data/source/mongodb/player_stats_playing_time"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (18)" width="90" x="179" y="1054">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="Min␞Player␞90s"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (12)" width="90" x="313" y="1054">
+        <list key="function_descriptions">
+          <parameter key="availability" value="Min/([90s]*90)"/>
+        </list>
+        <parameter key="keep_all_columns" value="true"/>
+        <parameter key="default_time_zone" value="Europe/Lisbon"/>
+      </operator>
+      <operator activated="true" class="concurrency:join" compatibility="11.0.001" expanded="true" height="82" name="Join (6)" width="90" x="447" y="952">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="false"/>
+        <list key="key_attributes">
+          <parameter key="Player" value="Player"/>
+        </list>
+        <parameter key="keep_both_join_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="replace_missing_values" compatibility="11.0.001" expanded="true" height="103" name="Replace Missing Values (6)" width="90" x="581" y="952">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="default" value="zero"/>
+        <list key="columns"/>
+      </operator>
+      <operator activated="true" class="blending:generate_columns" compatibility="11.0.001" expanded="true" height="82" name="Generate Attributes (13)" width="90" x="715" y="952">
+        <list key="function_descriptions">
+          <parameter key="physical" value="duels_per90*0.3+[Won%]*0.25+workrate*0.2+availability*0.15+fls_per90*0.1"/>
+        </list>
+        <parameter key="keep_all_columns" value="true"/>
+        <parameter key="default_time_zone" value="Europe/Lisbon"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (16)" width="90" x="849" y="952">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="Player␞physical"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="concurrency:join" compatibility="11.0.001" expanded="true" height="82" name="Join (7)" width="90" x="983" y="799">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="false"/>
+        <list key="key_attributes">
+          <parameter key="Player" value="Player"/>
+        </list>
+        <parameter key="keep_both_join_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="concurrency:join" compatibility="11.0.001" expanded="true" height="82" name="Join (8)" width="90" x="1519" y="34">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="false"/>
+        <list key="key_attributes">
+          <parameter key="Player" value="Player"/>
+        </list>
+        <parameter key="keep_both_join_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="replace_missing_values" compatibility="11.0.001" expanded="true" height="103" name="Replace Missing Values (7)" width="90" x="1653" y="34">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="shooting|physical|passing|pace|dribble|defensive"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="default" value="zero"/>
+        <list key="columns"/>
+      </operator>
+      <operator activated="true" class="normalize" compatibility="11.0.001" expanded="true" height="103" name="Normalize" width="90" x="1787" y="34">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="shooting|physical|passing|pace|dribble|defensive"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="numeric"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="real"/>
+        <parameter key="block_type" value="value_series"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_series_end"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="method" value="range transformation"/>
+        <parameter key="min" value="0.0"/>
+        <parameter key="max" value="20.0"/>
+        <parameter key="allow_negative_values" value="false"/>
+      </operator>
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store" width="90" x="1921" y="34">
+        <parameter key="repository_entry" value="../data/processed/player_stats"/>
+      </operator>
+      <connect from_op="Retrieve stats_misc" from_port="output" to_op="Select Attributes (2)" to_port="example set input"/>
+      <connect from_op="Select Attributes (2)" from_port="example set output" to_op="Generate Attributes (2)" to_port="table input"/>
+      <connect from_op="Retrieve stats_possession" from_port="output" to_op="Select Attributes (3)" to_port="example set input"/>
+      <connect from_op="Select Attributes (3)" from_port="example set output" to_op="Generate Attributes" to_port="table input"/>
+      <connect from_op="Generate Attributes" from_port="table output" to_op="Join" to_port="right"/>
+      <connect from_op="Generate Attributes (2)" from_port="table output" to_op="Join" to_port="left"/>
+      <connect from_op="Join" from_port="join" to_op="Select Attributes (4)" to_port="example set input"/>
+      <connect from_op="Select Attributes (4)" from_port="example set output" to_op="Replace Missing Values" to_port="example set input"/>
+      <connect from_op="Replace Missing Values" from_port="example set output" to_op="Generate Attributes (3)" to_port="table input"/>
+      <connect from_op="Generate Attributes (3)" from_port="table output" to_op="Reorder Attributes" to_port="example set input"/>
+      <connect from_op="Reorder Attributes" from_port="example set output" to_op="Select Attributes (7)" to_port="example set input"/>
+      <connect from_op="Select Attributes (7)" from_port="example set output" to_op="Join (2)" to_port="left"/>
+      <connect from_op="Retrieve player_stats_shooting" from_port="output" to_op="Select Attributes (5)" to_port="example set input"/>
+      <connect from_op="Select Attributes (5)" from_port="example set output" to_op="Replace Missing Values (2)" to_port="example set input"/>
+      <connect from_op="Replace Missing Values (2)" from_port="example set output" to_op="Generate Attributes (4)" to_port="table input"/>
+      <connect from_op="Generate Attributes (4)" from_port="table output" to_op="Select Attributes (6)" to_port="example set input"/>
+      <connect from_op="Select Attributes (6)" from_port="example set output" to_op="Join (2)" to_port="right"/>
+      <connect from_op="Join (2)" from_port="join" to_op="Join (5)" to_port="left"/>
+      <connect from_op="Retrieve player_stats_passing" from_port="output" to_op="Select Attributes (8)" to_port="example set input"/>
+      <connect from_op="Select Attributes (8)" from_port="example set output" to_op="Join (3)" to_port="left"/>
       <connect from_op="Retrieve player_stats_pass_types" from_port="output" to_op="Select Attributes (9)" to_port="example set input"/>
-      <connect from_op="Retrieve player_stats_passing" from_port="output" to_op="Select Attributes (10)" to_port="example set input"/>
-      <connect from_op="Retrieve player_stats_playing_time" from_port="output" to_op="Select Attributes (11)" to_port="example set input"/>
-      <connect from_op="Retrieve player_stats_possession" from_port="output" to_op="Select Attributes (12)" to_port="example set input"/>
-      <connect from_op="Retrieve player_stats_shooting" from_port="output" to_op="Select Attributes (13)" to_port="example set input"/>
-      <connect from_op="Read Excel" from_port="output" to_op="Select Attributes (4)" to_port="example set input"/>
-      <connect from_op="Select Attributes (4)" from_port="example set output" to_op="Store" to_port="input"/>
+      <connect from_op="Select Attributes (9)" from_port="example set output" to_op="Join (3)" to_port="right"/>
+      <connect from_op="Join (3)" from_port="join" to_op="Replace Missing Values (3)" to_port="example set input"/>
+      <connect from_op="Replace Missing Values (3)" from_port="example set output" to_op="Generate Attributes (5)" to_port="table input"/>
+      <connect from_op="Generate Attributes (5)" from_port="table output" to_op="Generate Attributes (6)" to_port="table input"/>
+      <connect from_op="Generate Attributes (6)" from_port="table output" to_op="Select Attributes (10)" to_port="example set input"/>
+      <connect from_op="Select Attributes (10)" from_port="example set output" to_op="Join (4)" to_port="left"/>
+      <connect from_op="Retrieve player_stats_possession" from_port="output" to_op="Select Attributes (11)" to_port="example set input"/>
+      <connect from_op="Select Attributes (11)" from_port="example set output" to_op="Replace Missing Values (4)" to_port="example set input"/>
+      <connect from_op="Replace Missing Values (4)" from_port="example set output" to_op="Generate Attributes (7)" to_port="table input"/>
+      <connect from_op="Generate Attributes (7)" from_port="table output" to_op="Generate Attributes (8)" to_port="table input"/>
+      <connect from_op="Generate Attributes (8)" from_port="table output" to_op="Select Attributes (12)" to_port="example set input"/>
+      <connect from_op="Select Attributes (12)" from_port="example set output" to_op="Join (4)" to_port="right"/>
+      <connect from_op="Join (4)" from_port="join" to_op="Join (5)" to_port="right"/>
+      <connect from_op="Join (5)" from_port="join" to_op="Join (8)" to_port="left"/>
+      <connect from_op="Retrieve player_stats_defensive" from_port="output" to_op="Select Attributes (13)" to_port="example set input"/>
+      <connect from_op="Select Attributes (13)" from_port="example set output" to_op="Generate Attributes (9)" to_port="table input"/>
+      <connect from_op="Generate Attributes (9)" from_port="table output" to_op="Select Attributes (14)" to_port="example set input"/>
+      <connect from_op="Select Attributes (14)" from_port="example set output" to_op="Replace Missing Values (5)" to_port="example set input"/>
+      <connect from_op="Replace Missing Values (5)" from_port="example set output" to_op="Generate Attributes (10)" to_port="table input"/>
+      <connect from_op="Generate Attributes (10)" from_port="table output" to_op="Select Attributes (15)" to_port="example set input"/>
+      <connect from_op="Select Attributes (15)" from_port="example set output" to_op="Join (7)" to_port="left"/>
+      <connect from_op="Retrieve player_stats_misc" from_port="output" to_op="Select Attributes (17)" to_port="example set input"/>
+      <connect from_op="Select Attributes (17)" from_port="example set output" to_op="Generate Attributes (11)" to_port="table input"/>
+      <connect from_op="Generate Attributes (11)" from_port="table output" to_op="Join (6)" to_port="left"/>
+      <connect from_op="Retrieve player_stats_playing_time" from_port="output" to_op="Select Attributes (18)" to_port="example set input"/>
+      <connect from_op="Select Attributes (18)" from_port="example set output" to_op="Generate Attributes (12)" to_port="table input"/>
+      <connect from_op="Generate Attributes (12)" from_port="table output" to_op="Join (6)" to_port="right"/>
+      <connect from_op="Join (6)" from_port="join" to_op="Replace Missing Values (6)" to_port="example set input"/>
+      <connect from_op="Replace Missing Values (6)" from_port="example set output" to_op="Generate Attributes (13)" to_port="table input"/>
+      <connect from_op="Generate Attributes (13)" from_port="table output" to_op="Select Attributes (16)" to_port="example set input"/>
+      <connect from_op="Select Attributes (16)" from_port="example set output" to_op="Join (7)" to_port="right"/>
+      <connect from_op="Join (7)" from_port="join" to_op="Join (8)" to_port="right"/>
+      <connect from_op="Join (8)" from_port="join" to_op="Replace Missing Values (7)" to_port="example set input"/>
+      <connect from_op="Replace Missing Values (7)" from_port="example set output" to_op="Normalize" to_port="example set input"/>
+      <connect from_op="Normalize" from_port="example set output" to_op="Store" to_port="input"/>
+      <connect from_op="Store" from_port="through" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
-      <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="538" y="540">create categories like fm</description>
+      <portSpacing port="sink_result 2" spacing="0"/>
     </process>
   </operator>
 </process>
