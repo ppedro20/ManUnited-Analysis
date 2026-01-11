@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="11.0.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="11.0.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve contracts" width="90" x="45" y="34">
+        <parameter key="repository_entry" value="../data/processed/contracts"/>
+      </operator>
+      <operator activated="true" class="write_excel" compatibility="11.0.001" expanded="true" height="103" name="Write Excel" width="90" x="246" y="34">
+        <parameter key="excel_file" value="C:/Users/pedro/Documents/AltairRapidMiner/AI Studio/Repositories/IDProj/data/final/contracts.xlsx"/>
+        <parameter key="file_format" value="xlsx"/>
+        <enumeration key="sheet_names"/>
+        <parameter key="sheet_name" value="RapidMiner Data"/>
+        <parameter key="date_format" value="dd-MM-yyyy"/>
+        <parameter key="number_format" value="#.0"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve medical_status" width="90" x="45" y="136">
+        <parameter key="repository_entry" value="../data/processed/medical_status"/>
+      </operator>
+      <operator activated="true" class="write_excel" compatibility="11.0.001" expanded="true" height="103" name="Write Excel (2)" width="90" x="246" y="136">
+        <parameter key="excel_file" value="C:/Users/pedro/Documents/AltairRapidMiner/AI Studio/Repositories/IDProj/data/final/medical_status.xlsx"/>
+        <parameter key="file_format" value="xlsx"/>
+        <enumeration key="sheet_names"/>
+        <parameter key="sheet_name" value="RapidMiner Data"/>
+        <parameter key="date_format" value="dd-MM-yyyy"/>
+        <parameter key="number_format" value="#.0"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve players_info" width="90" x="45" y="238">
+        <parameter key="repository_entry" value="../data/processed/players_info"/>
+      </operator>
+      <operator activated="true" class="write_excel" compatibility="11.0.001" expanded="true" height="103" name="Write Excel (3)" width="90" x="246" y="238">
+        <parameter key="excel_file" value="C:/Users/pedro/Documents/AltairRapidMiner/AI Studio/Repositories/IDProj/data/final/players_info.xlsx"/>
+        <parameter key="file_format" value="xlsx"/>
+        <enumeration key="sheet_names"/>
+        <parameter key="sheet_name" value="RapidMiner Data"/>
+        <parameter key="date_format" value="dd-MM-yyyy"/>
+        <parameter key="number_format" value="#.0"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve training_load" width="90" x="45" y="340">
+        <parameter key="repository_entry" value="../data/processed/training_load"/>
+      </operator>
+      <operator activated="true" class="write_excel" compatibility="11.0.001" expanded="true" height="103" name="Write Excel (4)" width="90" x="246" y="340">
+        <parameter key="excel_file" value="C:/Users/pedro/Documents/AltairRapidMiner/AI Studio/Repositories/IDProj/data/final/training_load.xlsx"/>
+        <parameter key="file_format" value="xlsx"/>
+        <enumeration key="sheet_names"/>
+        <parameter key="sheet_name" value="RapidMiner Data"/>
+        <parameter key="date_format" value="dd-MM-yyyy"/>
+        <parameter key="number_format" value="#.0"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <operator activated="false" class="write_excel" compatibility="11.0.001" expanded="true" height="82" name="Write Excel (5)" width="90" x="246" y="493">
+        <parameter key="file_format" value="xlsx"/>
+        <enumeration key="sheet_names"/>
+        <parameter key="sheet_name" value="RapidMiner Data"/>
+        <parameter key="date_format" value="yyyy-MM-dd HH:mm:ss"/>
+        <parameter key="number_format" value="#.0"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <connect from_op="Retrieve contracts" from_port="output" to_op="Write Excel" to_port="input"/>
+      <connect from_op="Retrieve medical_status" from_port="output" to_op="Write Excel (2)" to_port="input"/>
+      <connect from_op="Retrieve players_info" from_port="output" to_op="Write Excel (3)" to_port="input"/>
+      <connect from_op="Retrieve training_load" from_port="output" to_op="Write Excel (4)" to_port="input"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+    </process>
+  </operator>
+</process>
