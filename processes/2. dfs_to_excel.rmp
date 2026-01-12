@@ -60,42 +60,6 @@
         <parameter key="number_format" value="#.0"/>
         <parameter key="encoding" value="SYSTEM"/>
       </operator>
-      <operator activated="true" class="read_excel" compatibility="11.0.001" expanded="true" height="68" name="Read Excel" width="90" x="45" y="340">
-        <parameter key="excel_file" value="C:/Users/pedro/Desktop/ID-PROJ/data/final_data/match_stats.xlsx"/>
-        <parameter key="sheet_selection" value="sheet number"/>
-        <parameter key="sheet_number" value="1"/>
-        <parameter key="imported_cell_range" value="A1"/>
-        <parameter key="encoding" value="SYSTEM"/>
-        <parameter key="use_header_row" value="true"/>
-        <parameter key="header_row" value="1"/>
-        <parameter key="first_row_as_names" value="true"/>
-        <list key="annotations"/>
-        <parameter key="date_format" value=""/>
-        <parameter key="time_zone" value="Europe/Lisbon"/>
-        <parameter key="locale" value="English (United States)"/>
-        <parameter key="read_all_values_as_polynominal" value="false"/>
-        <list key="data_set_meta_data_information"/>
-        <parameter key="read_not_matching_values_as_missings" value="true"/>
-      </operator>
-      <operator activated="true" class="blending:select_attributes" compatibility="11.0.001" expanded="true" height="82" name="Select Attributes (4)" width="90" x="179" y="340">
-        <parameter key="type" value="include attributes"/>
-        <parameter key="attribute_filter_type" value="a subset"/>
-        <parameter key="select_attribute" value=""/>
-        <parameter key="select_subset" value="␞Date␞Comp␞Round␞Result␞Venue␞Opponent␞GF␞GA"/>
-        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
-      </operator>
-      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store" width="90" x="313" y="340">
-        <parameter key="repository_entry" value="../data/processed/matches"/>
-      </operator>
-      <operator activated="true" class="write_excel" compatibility="11.0.001" expanded="true" height="103" name="Write Excel (5)" width="90" x="447" y="340">
-        <parameter key="excel_file" value="C:/Users/pedro/Documents/AltairRapidMiner/AI Studio/Repositories/IDProj/data/final/match_data.xlsx"/>
-        <parameter key="file_format" value="xlsx"/>
-        <enumeration key="sheet_names"/>
-        <parameter key="sheet_name" value="RapidMiner Data"/>
-        <parameter key="date_format" value="yyyy-MM-dd HH:mm:ss"/>
-        <parameter key="number_format" value="#.0"/>
-        <parameter key="encoding" value="SYSTEM"/>
-      </operator>
       <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve player_stats" width="90" x="45" y="493">
         <parameter key="repository_entry" value="../data/processed/player_stats"/>
       </operator>
@@ -152,16 +116,26 @@
         <parameter key="number_format" value="#.0"/>
         <parameter key="encoding" value="SYSTEM"/>
       </operator>
+      <operator activated="true" class="retrieve" compatibility="11.0.001" expanded="true" height="68" name="Retrieve matches" width="90" x="45" y="340">
+        <parameter key="repository_entry" value="../data/processed/matches"/>
+      </operator>
+      <operator activated="true" class="write_excel" compatibility="11.0.001" expanded="true" height="103" name="Write Excel (5)" width="90" x="179" y="340">
+        <parameter key="excel_file" value="C:/Users/pedro/Documents/AltairRapidMiner/AI Studio/Repositories/IDProj/data/final/match_data.xlsx"/>
+        <parameter key="file_format" value="xlsx"/>
+        <enumeration key="sheet_names"/>
+        <parameter key="sheet_name" value="RapidMiner Data"/>
+        <parameter key="date_format" value="yyyy-MM-dd HH:mm:ss"/>
+        <parameter key="number_format" value="#.0"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
       <connect from_op="Retrieve contracts" from_port="output" to_op="Write Excel" to_port="input"/>
       <connect from_op="Retrieve medical_status" from_port="output" to_op="Write Excel (2)" to_port="input"/>
       <connect from_op="Retrieve players_info" from_port="output" to_op="Write Excel (3)" to_port="input"/>
       <connect from_op="Retrieve training_load" from_port="output" to_op="Write Excel (4)" to_port="input"/>
-      <connect from_op="Read Excel" from_port="output" to_op="Select Attributes (4)" to_port="example set input"/>
-      <connect from_op="Select Attributes (4)" from_port="example set output" to_op="Store" to_port="input"/>
-      <connect from_op="Store" from_port="through" to_op="Write Excel (5)" to_port="input"/>
       <connect from_op="Retrieve player_stats" from_port="output" to_op="Write Excel (6)" to_port="input"/>
       <connect from_op="Read CSV" from_port="output" to_op="Select Attributes" to_port="example set input"/>
       <connect from_op="Select Attributes" from_port="example set output" to_op="Write Excel (7)" to_port="input"/>
+      <connect from_op="Retrieve matches" from_port="output" to_op="Write Excel (5)" to_port="input"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
     </process>
