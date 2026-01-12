@@ -86,6 +86,7 @@
         <parameter key="invert_filter" value="false"/>
         <list key="filters_list">
           <parameter key="filters_entry_key" value="date_unix.ge.01/01/2025"/>
+          <parameter key="filters_entry_key" value="value.is_not_missing."/>
         </list>
         <parameter key="filters_logic_and" value="true"/>
         <parameter key="filters_check_metadata" value="true"/>
@@ -118,7 +119,7 @@
           <parameter key="Joshua Zirkzee (435648)" value="Joshua Zirkzee"/>
           <parameter key="Kobbie Mainoo (820374)" value="Kobbie Mainoo"/>
           <parameter key="Leny Yoro (923831)" value="Leny Yoro"/>
-          <parameter key="Lisandro MartÃ­nez (480762)" value="Lisandro Martinez"/>
+          <parameter key="Lisandro MartÃ­nez (480762)" value="Lisandro Martínez"/>
           <parameter key="Luke Shaw (183288)" value="Luke Shaw"/>
           <parameter key="Manuel Ugarte (476701)" value="Manuel Ugarte"/>
           <parameter key="Mason Mount (346483)" value="Mason Mount"/>
@@ -224,7 +225,17 @@
         <parameter key="from_attribute" value=""/>
         <parameter key="to_attribute" value=""/>
       </operator>
-      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store" width="90" x="1385" y="34">
+      <operator activated="true" class="filter_examples" compatibility="11.0.001" expanded="true" height="103" name="Filter Examples (3)" width="90" x="1385" y="34">
+        <parameter key="parameter_expression" value=""/>
+        <parameter key="condition_class" value="custom_filters"/>
+        <parameter key="invert_filter" value="false"/>
+        <list key="filters_list">
+          <parameter key="filters_entry_key" value="value.is_not_missing."/>
+        </list>
+        <parameter key="filters_logic_and" value="true"/>
+        <parameter key="filters_check_metadata" value="true"/>
+      </operator>
+      <operator activated="true" class="store" compatibility="11.0.001" expanded="true" height="68" name="Store" width="90" x="1519" y="34">
         <parameter key="repository_entry" value="../data/processed/contracts"/>
       </operator>
       <connect from_op="Player_Wages" from_port="output" to_op="Filter Examples (2)" to_port="example set input"/>
@@ -239,7 +250,8 @@
       <connect from_op="Select Attributes (2)" from_port="example set output" to_op="Aggregate" to_port="example set input"/>
       <connect from_op="Aggregate" from_port="example set output" to_op="Reorder Attributes" to_port="example set input"/>
       <connect from_op="Reorder Attributes" from_port="example set output" to_op="Rename" to_port="example set input"/>
-      <connect from_op="Rename" from_port="example set output" to_op="Store" to_port="input"/>
+      <connect from_op="Rename" from_port="example set output" to_op="Filter Examples (3)" to_port="example set input"/>
+      <connect from_op="Filter Examples (3)" from_port="example set output" to_op="Store" to_port="input"/>
       <connect from_op="Store" from_port="through" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
