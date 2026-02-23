@@ -1,19 +1,8 @@
 # PROJETO ID - Departamento de Análise de Dados Manchester United
 ## Connectors
 ### MongoDB
-- conn: mongodb+srv://<db_username>:<db_password>@projetoid.mjhpyyy.mongodb.net/
-- db_username: jose db_password: jose321
-- db_username:hugo db_password:hugo321
-- db_username: edd db_password: edd321
-- db_username: prof db_password: prof321
 
 ### MySQL
-- Host: sql7.freesqldatabase.com
-- Database name: sql7811781
-- Database user: sql7811781
-- Database password: qQUPDwhkl6
-- Port number: 3306
-
 
 ## Data Sources
 ### Mongo DB
